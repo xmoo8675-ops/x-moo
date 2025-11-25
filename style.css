@@ -79,31 +79,49 @@ body {
     height: 28px;
 }
 
-/* FULLSCREEN MOBILE MENU */
+/* FULLSCREEN MOBILE MENU (NEW) */
 .mobile-menu {
     position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70%;
-    height: 100vh;
-    background: white;
+    top: 70px; /* supaya turun tepat di bawah navbar/logo */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: #46bbdf;
     display: flex;
     flex-direction: column;
-    padding: 90px 30px;
-    gap: 25px;
-    transition: 0.35s ease;
-    box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+    padding: 40px 30px;
+    gap: 30px;
+    transition: 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
 }
 
+/* show menu */
+.mobile-menu.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* MOBILE MENU TEXT */
 .mobile-menu a {
     text-decoration: none;
-    font-size: 22px;
+    font-size: 28px;
     font-weight: 600;
-    color: #2c1d0f;
+    color: #fff !important;
+}.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
 }
 
-.mobile-menu.show {
-    right: 0;
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.hamburger span {
+    transition: 0.3s;
 }
 
 /* HERO */
